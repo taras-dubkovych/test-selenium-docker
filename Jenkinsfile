@@ -10,9 +10,14 @@ pipeline {
 
         stage ('Docker'){
             steps{
-                sh 'docker build -t my-docker .'
+                sh 'docker build -t my-playwright .'
             }
         }
+
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-repo/test-automation.git'
+            }
         }
 
         // stage('Start Selenium Grid') {
