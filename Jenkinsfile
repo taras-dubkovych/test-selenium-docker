@@ -13,11 +13,6 @@ pipeline {
                 sh 'docker build -t my-docker .'
             }
         }
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/your-repo/test-automation.git'
-            }
         }
 
         // stage('Start Selenium Grid') {
@@ -27,8 +22,13 @@ pipeline {
         //}
 
         stage('Run Tests') {
+           agent {
+            docker{
+                image 'my-docker'
+                reuseNode true
+            }
+           }
             steps {
-                sh 'npm install'
                 sh 'npm test'
             }
         }
