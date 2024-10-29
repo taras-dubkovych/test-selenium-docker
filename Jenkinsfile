@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_COMPOSE_PATH = './docker-compose.yml'
-    }
+    // environment {
+    //     DOCKER_COMPOSE_PATH = './docker-compose.yml'
+    // }
     
 
     stages {
@@ -16,14 +16,14 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/test-automation'
+                git 'https://github.com/your-repo/test-automation.git'
             }
         }
 
-        stage('Start Selenium Grid') {
-            steps {
-                sh 'docker-compose -f $DOCKER_COMPOSE_PATH up -d'
-            }
+        // stage('Start Selenium Grid') {
+        //     steps {
+        //         sh 'docker-compose -f $DOCKER_COMPOSE_PATH up -d'
+        //     }
         }
 
         stage('Run Tests') {
@@ -33,11 +33,11 @@ pipeline {
             }
         }
 
-        stage('Stop Selenium Grid') {
-            steps {
-                sh 'docker-compose -f $DOCKER_COMPOSE_PATH down'
-            }
-        }
+        // stage('Stop Selenium Grid') {
+        //     steps {
+        //         sh 'docker-compose -f $DOCKER_COMPOSE_PATH down'
+        //     }
+        // }
     }
 
     post {
