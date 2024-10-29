@@ -1,2 +1,2 @@
 FROM selenium/node-chrome:latest
-RUN install -g mocha chai chromedriver mocha-junit-reporter --save-dev
+RUN npm install -g selenium-webdriver mocha chai chromedriver mocha-junit-reporter --save-dev
