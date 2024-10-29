@@ -14,12 +14,6 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/your-repo/test-automation.git'
-            }
-        }
-
         // stage('Start Selenium Grid') {
         //     steps {
         //         sh 'docker-compose -f $DOCKER_COMPOSE_PATH up -d'
