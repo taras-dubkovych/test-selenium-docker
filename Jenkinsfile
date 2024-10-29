@@ -4,8 +4,16 @@ pipeline {
     environment {
         DOCKER_COMPOSE_PATH = './docker-compose.yml'
     }
+    
 
     stages {
+
+        stage ('Docker'){
+            steps{
+                sh 'docker build -t my-playwright'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 git 'https://github.com/your-repo/test-automation'
