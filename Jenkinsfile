@@ -24,7 +24,7 @@ pipeline {
         //     steps {
         //         sh 'docker-compose -f $DOCKER_COMPOSE_PATH up -d'
         //     }
-        }
+        //}
 
         stage('Run Tests') {
             steps {
